@@ -19,7 +19,7 @@
   "react-router-dom": "^6.26.2",
   "react-scripts": "^5.0.1",
   "web-vitals": "^2.1.4",
-  "emailjs-com": "^3.2.0"  // Add this line
+  "emailjs-com": "^3.2.0"  
 },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
