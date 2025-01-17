@@ -29,7 +29,7 @@ const Home = () => {
 
     script.onload = () => {
       try {
-        window.emailjs.init("bOhvfenfxAL6enWMm"); // Replace with your EmailJS public key
+        window.emailjs.init("b3BEXx1qpPfmRke-P3"); // Replace with your EmailJS public key
       } catch (error) {
         console.error("Failed to initialize EmailJS:", error);
         setResponseMessage("Failed to initialize Email service.");
@@ -48,7 +48,7 @@ const Home = () => {
     // Send email using EmailJS
     if (formRef.current) {
       window.emailjs
-        .sendForm("service_7a0zsv3", "template_5l3pcbc", formRef.current, "bOhvfenfxAL6enWMm")
+        .sendForm("service_pj234pq", "template_msrtu9g", formRef.current, "3BEXx1qpPfmRke-P3")
         .then(() => {
           setResponseMessage("Message sent successfully via EmailJS!");
         })
