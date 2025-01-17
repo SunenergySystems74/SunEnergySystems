@@ -1,3 +1,4 @@
+import emailjs from "emailjs-com";
 import React, { useEffect, useRef, useState } from "react";
 import "./Contact.css";
 
@@ -20,16 +21,33 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Send email using your custom service (for example, axios or any other way you prefer)
-    // Replace with the logic for sending the form data
-
-    setResponseMessage("Message sent successfully!");  // Placeholder for success
-    // setResponseMessage("Failed to send the message. Please try again."); // Placeholder for error
+    // EmailJS service to send the form data
+    emailjs
+      .sendForm(
+        "service_your_service_id", // Your service ID
+        "template_your_template_id", // Your template ID
+        formRef.current,
+        "user_your_user_id" // Your user ID (from EmailJS dashboard)
+      )
+      .then(
+        (result) => {
+          setResponseMessage("Message sent successfully!");
+          // Clear form after successful submission
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setResponseMessage("Failed to send the message. Please try again.");
+        }
+      );
   };
 
   useEffect(() => {
     // Any additional setup if required
-    // For example, fetching data or initializing any third-party services
   }, []);
 
   return (
