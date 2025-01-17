@@ -27,7 +27,7 @@ const Contact = () => {
 
     script.onload = () => {
       try {
-        window.emailjs.init("your_emailjs_public_key"); // Replace with your EmailJS public key
+        window.emailjs.init("bOhvfenfxAL6enWMm"); // Replace with your EmailJS public key
       } catch (error) {
         console.error("Failed to initialize EmailJS:", error);
         setResponseMessage("Failed to initialize Email service.");
@@ -46,12 +46,7 @@ const Contact = () => {
     // Send email using EmailJS
     if (formRef.current) {
       window.emailjs
-        .sendForm(
-          "service_aynz5tk", // Replace with your EmailJS service ID
-          "template_lusdpgl", // Replace with your EmailJS template ID
-          formRef.current,
-          "bOhvfenfxAL6enWMm" // Replace with your EmailJS public key
-        )
+        .sendForm("service_aynz5tk", "template_lusdpgl", formRef.current, "bOhvfenfxAL6enWMm")
         .then(() => {
           setResponseMessage("Message sent successfully via EmailJS!");
         })
@@ -126,7 +121,8 @@ const Contact = () => {
         <div className="contact-info">
           <h2>Our Office</h2>
           <p>
-            MIDC Hingna road, Near Electronic Zone Square, Nagpur, Maharashtra 440016
+            MIDC Hingna road,Near Electronic Zone Square, Nagpur, Maharashtra
+            440016
           </p>
           <p>Email: sunenergysystems74@gmail.com</p>
           <p>Phone: +91 9673188352</p>
