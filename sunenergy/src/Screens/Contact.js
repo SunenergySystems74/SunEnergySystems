@@ -1,5 +1,5 @@
 import emailjs from "emailjs-com";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./Contact.css";
 
 const Contact = () => {
@@ -9,46 +9,40 @@ const Contact = () => {
     phone: "",
     message: "",
   });
-
-  const [responseMessage, setResponseMessage] = useState("");
-  const formRef = useRef(null);
+  const form = useRef();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
 
-    // EmailJS service to send the form data
     emailjs
       .sendForm(
-        "service_your_service_id", // Your service ID
-        "template_your_template_id", // Your template ID
-        formRef.current,
-        "user_your_user_id" // Your user ID (from EmailJS dashboard)
+        "service_your_service_id", // Your EmailJS service ID
+        "template_your_template_id", // Your EmailJS template ID
+        form.current,
+        "user_your_user_id" // Your EmailJS user ID
       )
       .then(
         (result) => {
-          setResponseMessage("Message sent successfully!");
-          // Clear form after successful submission
+          console.log(result.text);
+          alert("Message sent successfully!");
           setFormData({
             name: "",
             email: "",
             phone: "",
             message: "",
-          });
+          }); // Clear form fields
         },
         (error) => {
-          setResponseMessage("Failed to send the message. Please try again.");
+          console.log(error.text);
+          alert("Message sending failed, please try again.");
         }
       );
   };
-
-  useEffect(() => {
-    // Any additional setup if required
-  }, []);
 
   return (
     <div className="contact-container">
@@ -60,7 +54,7 @@ const Contact = () => {
       <div className="contact-content">
         <div className="contact-form">
           <h2>Get In Touch</h2>
-          <form onSubmit={handleSubmit} ref={formRef}>
+          <form ref={form} onSubmit={sendEmail}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
@@ -107,7 +101,6 @@ const Contact = () => {
             </div>
             <button type="submit">Submit</button>
           </form>
-          <p>{responseMessage}</p>
         </div>
 
         <div className="contact-info">
