@@ -8,6 +8,7 @@ const Home = () => {
     phone: "",
     address: "",
     consumer: "",
+    email: "", // Added email field
   });
 
   const [responseMessage, setResponseMessage] = useState("");
@@ -29,7 +30,7 @@ const Home = () => {
 
     script.onload = () => {
       try {
-        window.emailjs.init("b3BEXx1qpPfmRke-P3"); // Replace with your EmailJS public key
+        window.emailjs.init("3BEXx1qpPfmRke-P3"); // Replace with your EmailJS public key
       } catch (error) {
         console.error("Failed to initialize EmailJS:", error);
         setResponseMessage("Failed to initialize Email service.");
@@ -150,6 +151,16 @@ const Home = () => {
                   type="text"
                   name="name"
                   value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
                   onChange={handleChange}
                   required
                 />
