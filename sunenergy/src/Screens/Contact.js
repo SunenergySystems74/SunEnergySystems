@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import "../App.css";
+import React, { useState } from "react";
+import "../App.css"; // Import appropriate CSS
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +10,6 @@ const Contact = () => {
   });
 
   const [responseMessage, setResponseMessage] = useState("");
-  const formRef = useRef(null);
 
   // Handle form changes
   const handleChange = (e) => {
@@ -18,48 +17,21 @@ const Contact = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  // EmailJS integration
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://cdn.emailjs.com/dist/email.min.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      try {
-        window.emailjs.init("bOhvfenfxAL6enWMm"); // Replace with your EmailJS public key
-      } catch (error) {
-        console.error("Failed to initialize EmailJS:", error);
-        setResponseMessage("Failed to initialize Email service.");
-      }
-    };
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  // Handle form submission
+  // EmailJS integration for form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Send email using EmailJS
-    if (formRef.current) {
-      window.emailjs
-        .sendForm(
-          "service_aynz5tk", // Replace with your EmailJS service ID
-          "template_lusdpgl", // Replace with your EmailJS template ID
-          formRef.current,
-          "bOhvfenfxAL6enWMm" // Replace with your EmailJS public key
-        )
-        .then(() => {
-          setResponseMessage("Message sent successfully via EmailJS!");
-        })
-        .catch((error) => {
-          console.error("Failed to send email:", error);
-          setResponseMessage("Failed to send the message via EmailJS.");
-        });
-    }
+    // Initialize EmailJS service after script load
+    window.emailjs
+      .sendForm("service_your_service_id", "template_your_template_id", e.target, "user_your_user_id")
+      .then(
+        (result) => {
+          setResponseMessage("Message sent successfully!");
+        },
+        (error) => {
+          setResponseMessage("Failed to send the message. Please try again.");
+        }
+      );
   };
 
   return (
@@ -72,7 +44,7 @@ const Contact = () => {
       <div className="contact-content">
         <div className="contact-form">
           <h2>Get In Touch</h2>
-          <form onSubmit={handleSubmit} ref={formRef}>
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
@@ -126,7 +98,7 @@ const Contact = () => {
         <div className="contact-info">
           <h2>Our Office</h2>
           <p>
-            MIDC Hingna road, Near Electronic Zone Square, Nagpur, Maharashtra
+            MIDC Hingna road,Near Electronic Zone Square, Nagpur, Maharashtra
             440016
           </p>
           <p>Email: sunenergysystems74@gmail.com</p>
