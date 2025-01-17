@@ -46,7 +46,12 @@ const Contact = () => {
     // Send email using EmailJS
     if (formRef.current) {
       window.emailjs
-        .sendForm("service_aynz5tk", "template_lusdpgl", formRef.current, "bOhvfenfxAL6enWMm")
+        .sendForm(
+          "service_aynz5tk", // Replace with your EmailJS service ID
+          "template_lusdpgl", // Replace with your EmailJS template ID
+          formRef.current,
+          "bOhvfenfxAL6enWMm" // Replace with your EmailJS public key
+        )
         .then(() => {
           setResponseMessage("Message sent successfully via EmailJS!");
         })
@@ -121,7 +126,7 @@ const Contact = () => {
         <div className="contact-info">
           <h2>Our Office</h2>
           <p>
-            MIDC Hingna road,Near Electronic Zone Square, Nagpur, Maharashtra
+            MIDC Hingna road, Near Electronic Zone Square, Nagpur, Maharashtra
             440016
           </p>
           <p>Email: sunenergysystems74@gmail.com</p>
