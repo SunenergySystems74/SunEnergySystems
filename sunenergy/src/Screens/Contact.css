@@ -1,0 +1,128 @@
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-image: url("../../public/Images/contact.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-header h1 {
+  font-size: 36px;
+  color: #36b689;
+}
+
+.contact-header p {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contact-form {
+  flex: 1;
+  background-color: white;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.contact-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #36b689;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 16px;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.contact-form button {
+  background-color: #36b689;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #2d8a63;
+}
+
+.contact-info {
+  flex: 1;
+  margin-left: 20px;
+  background-color: white;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.contact-info h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #36b689;
+}
+
+.contact-info p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.map-container {
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Responsive Design */
+@media (max-width: 720px) {
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .contact-info {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .contact-header h1 {
+    font-size: 28px;
+  }
+
+  .contact-header p {
+    font-size: 16px;
+  }
+
+  .contact-form h2,
+  .contact-info h2 {
+    font-size: 20px;
+  }
+}

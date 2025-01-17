@@ -1,0 +1,185 @@
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #36b689;
+  background-image: url("../../public/Images/contact.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.services-container h1 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  font-family: "Haerins", sans-serif;
+}
+
+.service-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.service-item {
+  flex: 1;
+  margin: 20px;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  background-image: url("../../public/Images/install.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.service-item::before {
+  content: ""; /* Add a pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(23, 22, 22, 0.283); /* Semi-transparent overlay */
+  border-radius: 8px; /* Match the border radius */
+  z-index: 1; /* Place it behind the text */
+}
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.service-item h2,
+.service-item p {
+  /* Style for text */
+  position: relative; /* Ensure text is above the overlay */
+  z-index: 5; /* Place it above the overlay */
+}
+
+.service-item h2 {
+  margin-bottom: 20px;
+  font-family: "Haerins", sans-serif;
+}
+
+.service-item p {
+  margin-bottom: 15px;
+  font-family: "Haerins", sans-serif;
+}
+/* item 1 */
+.service-item1 {
+  flex: 1;
+  margin: 20px;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  background-image: url("../../public/Images/repair.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.service-item1::before {
+  content: ""; /* Add a pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(3, 3, 3, 0.283); /* Semi-transparent overlay */
+  border-radius: 8px; /* Match the border radius */
+  z-index: 1; /* Place it behind the text */
+}
+.service-item1 h2,
+.service-item1 p {
+  /* Style for text */
+  position: relative; /* Ensure text is above the overlay */
+  z-index: 2; /* Place it above the overlay */
+}
+.service-item1:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service-item1 h2 {
+  margin-bottom: 20px;
+  font-family: "Haerins", sans-serif;
+}
+
+.service-item1 p {
+  margin-bottom: 15px;
+  font-family: "Haerins", sans-serif;
+}
+
+/* service item2 */
+.service-item2 {
+  flex: 1;
+  margin: 20px;
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  background-image: url("../../public/Images/consulting.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.service-item2::before {
+  content: ""; /* Add a pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.283); /* Semi-transparent overlay */
+  border-radius: 8px; /* Match the border radius */
+  z-index: 1; /* Place it behind the text */
+}
+.service-item2 h2,
+.service-item2 p {
+  /* Style for text */
+  position: relative; /* Ensure text is above the overlay */
+  z-index: 2; /* Place it above the overlay */
+}
+.service-item2:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service-item2 h2 {
+  margin-bottom: 20px;
+  font-family: "Haerins", sans-serif;
+}
+
+.service-item2 p {
+  margin-bottom: 15px;
+  font-family: "Haerins", sans-serif;
+}
+/* Mobile Responsiveness */
+@media (max-width: 720px) {
+  .service-list {
+    flex-direction: column;
+  }
+
+  .service-item {
+    margin: 20px 0;
+  }
+
+  .services-container h1 {
+    font-size: 2rem;
+  }
+
+  .service-item h2 {
+    font-size: 1.5rem;
+  }
+
+  .service-item p {
+    font-size: 1rem;
+  }
+}

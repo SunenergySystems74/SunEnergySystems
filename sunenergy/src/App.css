@@ -1,0 +1,375 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Haerins&display=swap"); */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  background-image: url("../public/Images/solar.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  animation: zoomInBackground 1s ease-in-out forwards;
+}
+
+.overlay {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4rem;
+  border-radius: 8px;
+  font-family: "Haerins";
+  padding-bottom: 200px;
+  padding-right: 40px;
+}
+.folder-animation {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4rem;
+  border-radius: 8px;
+  font-family: "Haerins";
+  padding-bottom: 200px;
+  padding-right: 40px;
+  overflow: hidden;
+  animation: folderOpen 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    rotateIn 1s ease-out;
+}
+h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: bounceInText 1.5s ease-out 0.5s forwards;
+}
+@keyframes zoomInBackground {
+  0% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Folder opening effect (Scaling vertically) */
+@keyframes folderOpen {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* Adding a rotation for immersive entry */
+@keyframes rotateIn {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* Bounce-in effect for the header text */
+@keyframes bounceInText {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(20px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Typewriter effect */
+.typewriter-text {
+  font-size: 1.5rem;
+  white-space: pre-wrap; /* Ensures new lines are preserved */
+}
+.slide-in-text {
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.container3 img {
+  width: 100%; /* Adjust width to be responsive */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 400px; /* Limit maximum height */
+}
+
+.container2 {
+  text-align: center;
+  background-color: #1f8662;
+  padding: 20px;
+  color: black;
+}
+
+.container2 h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #1f8662;
+  color: black;
+  /* border-radius: 10px; */
+  overflow: hidden;
+  padding: 20px;
+  width: 45%;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+.hidden {
+  opacity: 0;
+  transform: translateY(-50px); /* Start position: above the viewport */
+  transition: all 0.6s ease-in-out;
+}
+
+/* Slide-in animation when the element enters the viewport */
+.slide-in {
+  opacity: 1;
+  transform: translateY(0); /* Final position: original location */
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.card h3 {
+  font-size: 1.5em;
+  margin-top: 10px;
+  font-family: "Haerins";
+}
+
+.card p {
+  font-size: 1em;
+  margin-top: 10px;
+  font-family: "Haerins";
+}
+
+/* Client Information Section */
+.client-info {
+  display: flex;
+  padding: 40px 20px;
+  background: linear-gradient(
+    135deg,
+    #f5f7fa,
+    #d3e0ff
+  ); /* Modern light gradient */
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.info-content {
+  flex: 1;
+  padding-right: 20px;
+  color: #333;
+  font-family: "Georgia", "Times New Roman", serif; /* Classic newspaper font style */
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.info-content h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #045235;
+  font-family: "Merriweather", serif; /* Classic yet modern serif font */
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+.info-content h3 {
+  color: #045235;
+}
+
+.info-content p {
+  margin-bottom: 15px;
+}
+/* 
+.client-form {
+  flex: 1;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff, #eaeef7);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+} */
+.client-form {
+  flex: 1;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    #e0f7fa,
+    #f1f8e9
+  ); /* Light gradient background */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Soft shadow for a 3D effect */
+}
+.client-form h2 {
+  color: #045235;
+}
+.client-form .form-group {
+  margin-bottom: 20px;
+}
+
+.client-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+  transition: all 0.3s ease;
+}
+
+.client-form input:focus {
+  border-color: #36b689;
+  box-shadow: 0 0 10px rgba(54, 182, 137, 0.3); /* Glowing effect on focus */
+}
+
+.client-form button {
+  padding: 12px 24px;
+  background-color: #36b689;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.client-form button:hover {
+  background-color: #2d8a63;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Button shadow on hover */
+}
+
+.client-form button::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+.client-form button:hover::before {
+  top: -20px;
+  left: -20px;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.1); /* Soft bird-like shadow effect */
+  border-radius: 50%;
+}
+
+@media (max-width: 720px) {
+  .app {
+    width: 100%;
+    height: 100%;
+  }
+  .container {
+    width: auto;
+    height: auto; /* Adjust height based on content */
+    background-position: top; /* Reposition background for better visibility */
+  }
+
+  .overlay {
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 40px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .container3 {
+    height: auto; /* Adjust height based on content */
+    padding: 20px 0;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .card {
+    width: auto; /* Full width for smaller screens */
+    margin-bottom: 20px;
+  }
+
+  .container2 h2 {
+    font-size: 1.5em; /* Reduce title size */
+  }
+
+  .card h3 {
+    font-size: 1.2em; /* Reduce card title size */
+  }
+
+  .card p {
+    font-size: 0.9em; /* Reduce card text size */
+  }
+  .client-info {
+    flex-direction: column; /* Stack columns on smaller screens */
+    padding: 21px; /* Reduce padding */
+  }
+
+  .info-content {
+    padding-right: 0; /* Remove right padding */
+    margin-bottom: 20px; /* Add space between sections */
+  }
+
+  .client-form {
+    text-align: center; /* Center align the form */
+  }
+
+  .client-form .form-group {
+    margin-bottom: 15px; /* Adjust margin for better spacing */
+  }
+
+  .client-form input {
+    padding: 8px; /* Adjust input padding for smaller screens */
+  }
+
+  .client-form button {
+    padding: 10px 15px; /* Adjust button padding */
+  }
+}
