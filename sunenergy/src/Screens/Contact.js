@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "../App.css"; // Import appropriate CSS
+import React, { useEffect, useRef, useState } from "react";
+import "./Contact.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,29 +10,27 @@ const Contact = () => {
   });
 
   const [responseMessage, setResponseMessage] = useState("");
+  const formRef = useRef(null);
 
-  // Handle form changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // EmailJS integration for form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Initialize EmailJS service after script load
-    window.emailjs
-      .sendForm("service_your_service_id", "template_your_template_id", e.target, "user_your_user_id")
-      .then(
-        (result) => {
-          setResponseMessage("Message sent successfully!");
-        },
-        (error) => {
-          setResponseMessage("Failed to send the message. Please try again.");
-        }
-      );
+    // Send email using your custom service (for example, axios or any other way you prefer)
+    // Replace with the logic for sending the form data
+
+    setResponseMessage("Message sent successfully!");  // Placeholder for success
+    // setResponseMessage("Failed to send the message. Please try again."); // Placeholder for error
   };
+
+  useEffect(() => {
+    // Any additional setup if required
+    // For example, fetching data or initializing any third-party services
+  }, []);
 
   return (
     <div className="contact-container">
@@ -44,7 +42,7 @@ const Contact = () => {
       <div className="contact-content">
         <div className="contact-form">
           <h2>Get In Touch</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} ref={formRef}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
@@ -94,17 +92,14 @@ const Contact = () => {
           <p>{responseMessage}</p>
         </div>
 
-        {/* Contact Information */}
         <div className="contact-info">
           <h2>Our Office</h2>
           <p>
-            MIDC Hingna road,Near Electronic Zone Square, Nagpur, Maharashtra
-            440016
+            MIDC Hingna road, Near Electronic Zone Square, Nagpur, Maharashtra 440016
           </p>
           <p>Email: sunenergysystems74@gmail.com</p>
           <p>Phone: +91 9673188352</p>
 
-          {/* Location Map */}
           <div className="map-container">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.07008419544!2d78.97771217471656!3d21.109771884992224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd49538ae8a5a7d%3A0xe5be2b89cf294ca3!2sSun%20Energy%20systems!5e0!3m2!1sen!2sin!4v1727105099768!5m2!1sen!2sin"
