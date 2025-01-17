@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
-import "./Contact.css";
+import React, { useEffect, useRef, useState } from "react";
+import "../App.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,26 +10,56 @@ const Contact = () => {
   });
 
   const [responseMessage, setResponseMessage] = useState("");
+  const formRef = useRef(null);
 
+  // Handle form changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // EmailJS integration
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://cdn.emailjs.com/dist/email.min.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      try {
+        window.emailjs.init("your_emailjs_public_key"); // Replace with your EmailJS public key
+      } catch (error) {
+        console.error("Failed to initialize EmailJS:", error);
+        setResponseMessage("Failed to initialize Email service.");
+      }
+    };
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios
-      .post(
-        "https://sunenergysystem-lbihyevv5-sunenergysystems74s-projects.vercel.app/send-email",
-        formData
-      )
-      .then((response) => {
-        setResponseMessage("Message sent successfully!");
-      })
-      .catch((error) => {
-        setResponseMessage("Failed to send the message. Please try again.");
-      });
+    // Send email using EmailJS
+    if (formRef.current) {
+      window.emailjs
+        .sendForm(
+          "service_aynz5tk", // Replace with your EmailJS service ID
+          "template_lusdpgl", // Replace with your EmailJS template ID
+          formRef.current,
+          "bOhvfenfxAL6enWMm" // Replace with your EmailJS public key
+        )
+        .then(() => {
+          setResponseMessage("Message sent successfully via EmailJS!");
+        })
+        .catch((error) => {
+          console.error("Failed to send email:", error);
+          setResponseMessage("Failed to send the message via EmailJS.");
+        });
+    }
   };
 
   return (
@@ -43,7 +72,7 @@ const Contact = () => {
       <div className="contact-content">
         <div className="contact-form">
           <h2>Get In Touch</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} ref={formRef}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
@@ -97,8 +126,7 @@ const Contact = () => {
         <div className="contact-info">
           <h2>Our Office</h2>
           <p>
-            MIDC Hingna road,Near Electronic Zone Square, Nagpur, Maharashtra
-            440016
+            MIDC Hingna road, Near Electronic Zone Square, Nagpur, Maharashtra 440016
           </p>
           <p>Email: sunenergysystems74@gmail.com</p>
           <p>Phone: +91 9673188352</p>
