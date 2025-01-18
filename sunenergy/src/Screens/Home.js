@@ -31,7 +31,7 @@ const Home = () => {
       try {
         window.emailjs.init("RfIGu11kXxwQeRAxf"); // Replace with your EmailJS public key
       } catch (error) {
-        console.error("Failed to initialize EmailJS:", error);
+        console.error("Failed to initialize", error);
         setResponseMessage("Failed to initialize Email service.");
       }
     };
@@ -50,11 +50,11 @@ const Home = () => {
       window.emailjs
         .sendForm("service_plvooje", "template_5am13ff", formRef.current, "RfIGu11kXxwQeRAxf")
         .then(() => {
-          setResponseMessage("Message sent successfully via EmailJS!");
+          setResponseMessage("Message sent successfully!!");
         })
         .catch((error) => {
           console.error("Failed to send email:", error);
-          setResponseMessage("Failed to send the message via EmailJS.");
+          setResponseMessage("Failed to send the message!!.");
         });
     }
   };
